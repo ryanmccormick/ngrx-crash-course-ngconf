@@ -9,7 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BananaComponent } from './banana/banana.component';
-import { initialState, reducers } from './app.state';
+import { effects, initialState, reducers } from './app.state';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { initialState, reducers } from './app.state';
     MatInputModule,
     MatCardModule,
     StoreModule.forRoot(reducers, {initialState}),
+    EffectsModule.forRoot(effects),
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),
